@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ColorVector {
+public extension ColorVector {
     var xyzo: (x: Double, y: Double, z: Double, o: Double) {
         let xyzColor = color(in: .xyz)
         assert(xyzColor.space == .xyz)

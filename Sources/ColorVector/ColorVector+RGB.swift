@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ColorVector {
+public extension ColorVector {
     var rgbo: (r: Double, g: Double, b: Double, o: Double) {
         let rgbColor = color(in: .rgb)
         assert(rgbColor.space == .rgb)

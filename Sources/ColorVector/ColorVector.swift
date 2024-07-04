@@ -24,10 +24,8 @@ public struct ColorVector: Codable, Equatable, Hashable {
         self.v = v
         self.space = space
     }
-}
 
-extension ColorVector {
-    func color(in space: Space) -> Self {
+    public func color(in space: Space) -> Self {
         ColorConversion.convert(self, to: space)
     }
 }

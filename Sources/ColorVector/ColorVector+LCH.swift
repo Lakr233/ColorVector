@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ColorVector {
+public extension ColorVector {
     var lcho: (l: Double, c: Double, h: Double, o: Double) {
         let lchColor = color(in: .lch)
         assert(lchColor.space == .lch)
