@@ -68,7 +68,7 @@ private extension ColorConversion {
             let tuple = SpaceTuple(from: from, to: space)
             if let currentChain = searched[tuple] {
                 // if already visited and has shorter path for this space, ignore sub path
-                if currentChain.count < chain.count {
+                if currentChain.count <= chain.count {
                     return
                 }
             }
