@@ -7,27 +7,27 @@
 
 import Foundation
 
-public struct ColorVector: Codable, Equatable, Hashable {
-    public var v: SIMD4<Double>
-    public var opacity: Double { v.w }
+public struct ColorVector: Codable, Equatable, Hashable, Sendable {
+  public var v: SIMD4<Double>
+  public var opacity: Double { v.w }
 
-    public enum Space: String, Codable, Equatable, Hashable, CaseIterable {
-        case rgb
-        case lch
-        case lab
-        case xyz
-    }
+  public enum Space: String, Codable, Equatable, Hashable, CaseIterable, Sendable {
+    case rgb
+    case lch
+    case lab
+    case xyz
+  }
 
-    public var space: Space
+  public var space: Space
 
-    public init(v: SIMD4<Double> = .init(0, 0, 0, 0), space: Space = .rgb) {
-        self.v = v
-        self.space = space
-    }
+  public init(v: SIMD4<Double> = .init(0, 0, 0, 0), space: Space = .rgb) {
+    self.v = v
+    self.space = space
+  }
 
-    public func color(in space: Space) -> Self {
-        ColorConversion.convert(self, to: space)
-    }
+  public func color(in space: Space) -> Self {
+    ColorConversion.convert(self, to: space)
+  }
 }
 
 /*
